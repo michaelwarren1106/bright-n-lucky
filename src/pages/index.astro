@@ -1,16 +1,33 @@
 ---
-
+import IndexLayout from '../layouts/IndexLayout.astro';
 ---
+<IndexLayout title="Bright & Lucky Face Painting | Home">
+	<div class="hero full-width">
+    <div class="content-grid">
+      hero
+    </div>
+  </div>
+  <section id="get-in-touch">
+    <h2>Get in touch</h2>
+  </section>
+  <section id="services">
+    <h2>Services</h2>
+  </section>
+  <section id="our-paints">
+    <h2>Our paints</h2>
+  </section>
+  <section id="paint-removal">
+    <h2>Paint removal</h2>
+  </section>
+</IndexLayout>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<style>
+  .hero {
+    min-height: 60vh;
+    background: var(--bl-color-green-100);
+  }
+
+  section {
+    padding-block: var(--bl-spacing-3x-large);
+  }
+</style>

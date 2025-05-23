@@ -1,0 +1,54 @@
+@layer reset, global-styles, layout;
+
+@import './reset.css';
+@import './layout.css';
+
+
+@font-face {
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/comfortaa/v45/1Ptsg8LJRfWJmhDAuUs4TYFqL_KWxQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@layer global-styles {
+
+  :root {
+    /* COLORS */
+    --bl-color-background-page: #FCFFFC;
+    --bl-color-background-page-2: #E8F0EA;
+    --bl-color-background-page-3: #C6D0C8;
+
+    --bl-color-green-100: #C3EECE;
+    --bl-color-green-900: #258232;
+
+    --bl-color-text-body: #2E3A3A;
+    --bl-color-text-body-inverse: #FFFFFF;
+
+    /* TEXT */
+    --bl-font-body: 'Comfortaa', sans-serif;
+    --bl-font-size-reg: 18px;
+
+    /* SPACING */
+    --bl-spacing-3x-small: 0.125rem;
+    --bl-spacing-2x-small: 0.25rem;
+    --bl-spacing-x-small:	0.5rem;
+    --bl-spacing-small:	0.75rem;
+    --bl-spacing-medium: 1rem;
+    --bl-spacing-large:	1.25rem;
+    --bl-spacing-x-large:	1.75rem;
+    --bl-spacing-2x-large: 2.25rem;
+    --bl-spacing-3x-large: 3rem;
+    --bl-spacing-4x-large: 4.5rem;
+  }
+
+  body {
+    background: var(--bl-color-background-page);
+    color: var(--bl-color-text-body);
+    font-family: var(--bl-font-body);
+    font-size: var(--bl-font-size-reg);
+  }
+
+}
