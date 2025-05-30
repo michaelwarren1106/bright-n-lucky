@@ -3,21 +3,96 @@ import IndexLayout from '../layouts/IndexLayout.astro';
 ---
 <IndexLayout title="Bright & Lucky Face Painting | Home">
 	<div class="hero full-width">
-    <div class="content-grid">
-      hero
-    </div>
+    <!-- <div class="content-grid"> -->
+      <h1 class="font-display">Everyone deserves to shine!</h1>
+      <p></p>
+
+      <a href="#get-in-touch" class="hero-cta">Get in touch</a>
+    <!-- </div> -->
   </div>
-  <section id="get-in-touch">
-    <h2>Get in touch</h2>
-  </section>
-  <section id="services">
+  <section class="full-width" id="services">
     <h2>Services</h2>
+    <ul class="feature-grid">
+      <li>
+        <div class="pattern-dots-lg">
+          <img src="/imgs/face-paint.png" alt="A smiling little redheaded girl with a unicorn face paint design with an orange horn, and painted sparkels with sparkly glitter on her cheeks.">
+        </div>
+        <div class="service-description">
+          <h3>Face painting</h3>
+          <p>We use only high-quality, cosmetic-grade, professional paints. We offer dozens of designs and are happy to create an option or two that coordinate with the theming of your event. Packages start at $100/hr for 10 people.</p>
+          <h4>Water-resistant Face Painting</h4>
+          <p>
+            We offer a limited menu of water and sweat-resistant face paint options using cosmetic-grade silicone paints from Body Color Cosmetics. Perfect for pool parties or just hot summer days, these paints last and look fantastic. Packages start at $125/hr for 10 people.
+          </p>
+        </div>
+      </li>
+      <li>
+        <div class="pattern-dots-lg">
+          <img src="/imgs/glitter-tattoo.png" alt="A glitter snake design with rainbow glitter, starting from to bottom with a red, gold, green, blue, and purple glitter gradient.">
+        </div>
+        <div class="service-description">
+          <h3>Glitter tattoos</h3>
+          <p>
+            Hand-made gem clusters are applied with double-sided medical tape for a skin-safe but lasting pop of sparkle. Gem packages can be added to a face paint package for an additional $25/hr.
+          </p>
+        </div>
+      </li>
+      <li>
+        <div class="pattern-dots-lg">
+          <img src="/imgs/face-gem.png" alt="Little girl with a mermaid face paint design on her forehead and a cluster of gems in the center between her eyebrows.">
+        </div>
+        <div class="service-description">
+          <h3>Face gems</h3>
+          <p>
+            Using skin-safe adhesive and cosmetic-grade glitter we can create beautiful sparkly skin art in dozens of designs. Glitter tattoos last for 3-5 days if properly cared for. Packages start at $125/hr for 15 glitter tattoos.
+          </p>
+        </div>
+      </li>
+      <li>
+        <div class="pattern-dots-lg">
+          <img src="/imgs/glitter-bar.png" alt="Woman turned to the side wearing a straw hat with a blue glitter wave design around her left eye at her temples.">
+        </div>
+        <div class="service-description">
+          <h3>Festival glitter</h3>
+          <p>
+            We use cosmetic-grade chunky glitter gels and balms to create eye-catching, colorful designs on faces, beards, and in hair. Perfect for parties, concerts, and even weddings our packages start at $125/hr for 15 people.
+          </p>
+        </div>
+      </li>
+    </ul>
   </section>
-  <section id="our-paints">
-    <h2>Our paints</h2>
+  <section class="full-width" id="portfolio">
+    <h2>Portfolio</h2>
+    <p>this is a second thing</p>
   </section>
-  <section id="paint-removal">
+  <section class="full-width" id="get-in-touch">
+    <h2>Get in touch</h2>
+    <p>this is a second thing</p>
+  </section>
+  <section class="full-width flow" id="paint-removal">
     <h2>Paint removal</h2>
+    <h3>Face Paints</h3>
+    <p>
+      To remove your face paint, use a mild liquid soap and gently rub the soap over the design in circles, avoiding the eye area. Use a damp terry cloth washcloth to wipe off the soap; the gentle exfoliating of the washcloth helps with color removal. For paint around the eye area, use a damp washcloth to gently wipe away paint, but avoid using soap to prevent eye irritation.
+    </p>
+    <p>
+      Some colors may be harder to remove than others, depending on the paint brand and the skin's pH. In those cases, applying skin-safe oil (like coconut or olive) to a cotton round or paper towel and gently rubbing in circles should help remove more stubborn colors. Again, avoid the eye area with these oils to prevent eye irritation.
+    </p>
+    <h3>Face Gems</h3>
+    <p>Face gems are easily removed by gently lifting up the corner of the adhesive and pulling.</p>
+    <h3>Water-resistant Face Paint</h3>
+    <p>
+      To remove water-resistant face paint, apply skin-safe oil (like olive oil or coconut oil) or micellar water to a cotton round or papertowel. Gently rub the oil into the paint in circles. The paint should start to “pill up” and can be easily wiped away.
+    </p>
+    <h3>Glitter Tattoos</h3>
+    <p>
+      To remove water-resistant glitter tattoos, apply skin-safe oil (like olive oil or coconut oil) to a cotton round or paper towel. Allow the oil-saturated material to sit on the glitter tattoo for a few moments then gently rub in circles. The glitter tattoo should start to “pill up” and then can be peeled away.
+    </p>
+    <h3>Festival Glitter</h3>
+    <p>
+      To remove chunky glitter gels and balms from skin, use a plastic card (like credit card material, but we don't recommend using an actual credit or debit card) and lightly scrape off the glitter. Wipe the card clean with a paper towel and dispose of the glitter in the trash. To remove chunky glitter gels and balms from hair, use a fine-tooth comb and, starting at the root of the hair, gently comb through to the tip. Use a paper towel to wipe the comb clean and dispose of the glitter in the trash.
+    </p>
+
   </section>
 </IndexLayout>
 
@@ -25,9 +100,108 @@ import IndexLayout from '../layouts/IndexLayout.astro';
   .hero {
     min-height: 60vh;
     background: var(--bl-color-green-100);
+    padding-block-start: 200px;
+    text-align: center;
+    padding-block: 200px;
   }
 
   section {
-    padding-block: var(--bl-spacing-3x-large);
+    position: relative;
+    padding-block-start: var(--bl-spacing-3x-large);
+    padding-block-end: calc(130px + (var(--bl-spacing-3x-large) * 2));
+    background: var(--bl-color-background-page);
+    min-height: 300px;
+  }
+
+  h1 {
+    font-family: var(--bl-font-display);
+    font-size: var(--bl-font-size-4x-large);
+  }
+
+  h2 {
+    text-align: center;
+    font-family: var(--bl-font-display);
+    font-size: var(--bl-font-size-3x-large);
+  }
+
+  section::before {
+    content: '';
+    display: block;
+    height: 129px; /** ooh magic */
+    width: 100%;
+    position: absolute;
+    top: -128px; /** ooh magic */
+    left: 0;
+    background: inherit;
+    clip-path: var(--bl-shape-wave-clip-low);
+  }
+
+  /* SERVICES */
+  #services {
+    ul {
+      --feature-gap: var(--bl-spacing-3x-large);
+      --feature-max-col-count: 2;
+      --feature-min-col-size: 350px;
+      list-style: none;
+      padding: 0;
+    }
+
+    /* service category heading */
+    h3 {
+      font-size: var(--bl-font-size-x-large);
+      font-weight: 700;
+    }
+
+    .pattern-dots-lg {
+      width: 300px;
+      aspect-ratio: 1;
+      flex: 0 0 auto;
+      border-radius: var(--bl-border-radius-large);
+      align-self: start;
+      color: var(--bl-color-green-800);
+
+      img {
+        border-radius: var(--bl-border-radius-large);
+      }
+    }
+
+    .feature-grid {
+      margin-block-start: var(--bl-spacing-4x-large);
+    }
+
+    .service-description {
+      display: flex;
+      flex-direction: column;
+      gap: var(--bl-spacing-large);
+      max-width: 70ch;
+      line-height: 1.75;
+    }
+  }
+
+  #portfolio {
+    background: var(--bl-color-green-800);
+    color: var(--bl-color-text-body-inverse);
+
+    h2 {
+      text-shadow: 4px 4px 2px var(--bl-color-green-900);
+    }
+  }
+
+  #get-in-touch {
+    background: var(--bl-color-background-page-2);
+  }
+
+
+  @media (width > 900px) {
+    section::before {
+      clip-path: var(--bl-shape-wave-clip-high);
+    }
+  }
+
+  @media (width > 1200px) {
+    #services ul {
+      --grid-max-col-count: 4;
+      --grid-min-col-size: 250px;
+    }
   }
 </style>

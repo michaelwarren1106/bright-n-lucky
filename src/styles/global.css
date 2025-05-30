@@ -3,16 +3,6 @@
 @import './reset.css';
 @import './layout.css';
 
-
-@font-face {
-  font-family: 'Comfortaa';
-  font-style: normal;
-  font-weight: 300 700;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/comfortaa/v45/1Ptsg8LJRfWJmhDAuUs4TYFqL_KWxQ.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
 @layer global-styles {
 
   :root {
@@ -22,14 +12,26 @@
     --bl-color-background-page-3: #C6D0C8;
 
     --bl-color-green-100: #C3EECE;
-    --bl-color-green-900: #258232;
+    --bl-color-green-800: #2BA84A;
+    --bl-color-green-900: #248232;
 
     --bl-color-text-body: #2E3A3A;
     --bl-color-text-body-inverse: #FFFFFF;
 
-    /* TEXT */
+    /* FONT FAMILY */
     --bl-font-body: 'Comfortaa', sans-serif;
-    --bl-font-size-reg: 18px;
+    --bl-font-display: "Bubblegum Sans", sans-serif;
+
+    /* FONT SIZE */
+    --bl-font-size-2x-small:	0.625rem;
+    --bl-font-size-x-small:	0.75rem;
+    --bl-font-size-small:	0.875rem;
+    --bl-font-size-medium:	1.125rem;
+    --bl-font-size-large:	1.25rem;
+    --bl-font-size-x-large:	1.5rem;
+    --bl-font-size-2x-large:	2.25rem;
+    --bl-font-size-3x-large:	3rem;
+    --bl-font-size-4x-large:	4.5rem;
 
     /* SPACING */
     --bl-spacing-3x-small: 0.125rem;
@@ -42,13 +44,90 @@
     --bl-spacing-2x-large: 2.25rem;
     --bl-spacing-3x-large: 3rem;
     --bl-spacing-4x-large: 4.5rem;
+
+    /* BORDER RADIUS */
+    --bl-border-radius-small:	0.1875rem;
+    --bl-border-radius-medium:	0.25rem;
+    --bl-border-radius-large: 0.5rem;
+    --bl-border-radius-x-large: 1rem;
+    --bl-border-radius-circle: 50%;
+    --bl-border-radius-pill: 9999px;
+
+    /* ELEVATION */
+    --bl-shadow-x-small: 0 1px 2px rgb(0 0 0 / 18%);
+    --bl-shadow-small: 0 1px 2px rgb(0 0 0 / 24%);
+    --bl-shadow-medium: 0 2px 4px rgb(0 0 0 / 24%);
+    --bl-shadow-large: 0 2px 8px rgb(0 0 0 / 24%);
+    --bl-shadow-x-larg: 0 4px 16px rgb(0 0 0 / 24%);
+
+    --bl-shape-wave-clip-low: polygon(100% 100%, 0% 100% , 0.00% 89.92%, 2.00% 89.77%, 4.00% 89.30%, 6.00% 88.53%, 8.00% 87.45%, 10.00% 86.09%, 12.00% 84.44%, 14.00% 82.52%, 16.00% 80.35%, 18.00% 77.94%, 20.00% 75.31%, 22.00% 72.48%, 24.00% 69.47%, 26.00% 66.32%, 28.00% 63.03%, 30.00% 59.64%, 32.00% 56.17%, 34.00% 52.65%, 36.00% 49.11%, 38.00% 45.57%, 40.00% 42.06%, 42.00% 38.61%, 44.00% 35.25%, 46.00% 31.99%, 48.00% 28.88%, 50.00% 25.92%, 52.00% 23.15%, 54.00% 20.58%, 56.00% 18.23%, 58.00% 16.13%, 60.00% 14.29%, 62.00% 12.72%, 64.00% 11.43%, 66.00% 10.45%, 68.00% 9.76%, 70.00% 9.38%, 72.00% 9.32%, 74.00% 9.56%, 76.00% 10.11%, 78.00% 10.97%, 80.00% 12.13%, 82.00% 13.58%, 84.00% 15.31%, 86.00% 17.30%, 88.00% 19.54%, 90.00% 22.02%, 92.00% 24.71%, 94.00% 27.59%, 96.00% 30.64%, 98.00% 33.84%, 100.00% 37.16%);
+    --bl-shape-wave-clip-high: polygon(100% 100%, 0% 100% , 0.00% 97.67%, 2.00% 97.49%, 4.00% 96.93%, 6.00% 96.01%, 8.00% 94.73%, 10.00% 93.10%, 12.00% 91.13%, 14.00% 88.85%, 16.00% 86.26%, 18.00% 83.38%, 20.00% 80.25%, 22.00% 76.88%, 24.00% 73.29%, 26.00% 69.53%, 28.00% 65.61%, 30.00% 61.56%, 32.00% 57.43%, 34.00% 53.23%, 36.00% 49.01%, 38.00% 44.79%, 40.00% 40.61%, 42.00% 36.49%, 44.00% 32.48%, 46.00% 28.60%, 48.00% 24.89%, 50.00% 21.36%, 52.00% 18.06%, 54.00% 14.99%, 56.00% 12.20%, 58.00% 9.69%, 60.00% 7.50%, 62.00% 5.62%, 64.00% 4.09%, 66.00% 2.91%, 68.00% 2.10%, 70.00% 1.65%, 72.00% 1.57%, 74.00% 1.86%, 76.00% 2.52%, 78.00% 3.54%, 80.00% 4.93%, 82.00% 6.65%, 84.00% 8.71%, 86.00% 11.09%, 88.00% 13.76%, 90.00% 16.71%, 92.00% 19.92%, 94.00% 23.35%, 96.00% 26.99%, 98.00% 30.80%, 100.00% 34.76%);
   }
 
   body {
     background: var(--bl-color-background-page);
     color: var(--bl-color-text-body);
     font-family: var(--bl-font-body);
-    font-size: var(--bl-font-size-reg);
+    font-size: var(--bl-font-size-medium);
+    font-smooth: auto;
   }
 
+  /* UTILITIES */
+  .font-body {
+    font-family: var(--bl-font-body);
+  }
+
+  .font-display {
+    font-family: var(--bl-font-display);
+  }
+
+
+
+  /* BUTTONS */
+  .hero-cta {
+    font-size: var(--bl-font-size-large);
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: var(--bl-border-radius-pill);
+    padding: var(--bl-spacing-x-small) var(--bl-spacing-3x-large);
+    color: var(--bl-color-green-800);
+    border: 4px solid var(--bl-color-green-800);
+    width: max-content;
+    margin-inline: auto;
+    user-select: none;
+    transition: background 250ms ease-in-out, color 250ms ease-in-out;
+    outline: none;
+
+    &:hover,
+    &:focus-visible {
+      background: var(--bl-color-green-800);
+      color: var(--bl-color-text-body-inverse);
+    }
+  }
+
+  /* CARD */
+  .card {
+    background: var(--bl-color-background-page);
+    border-radius: var(--bl-border-radius-large);
+    padding: var(--bl-spacing-2x-large);
+
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+
+  }
+
+
+  /* bg pattern */
+  .pattern-dots-lg {
+    background-image: radial-gradient(currentColor 1.2px, transparent 1.2px), radial-gradient(currentColor 1.2px, transparent 1.2px);
+    background-size: calc(40 * 0.5px) calc(40 * 0.5px);
+    background-position: 0 0, calc(20 * 0.5px) calc(20 * 0.5px);
+
+    img {
+      transform: translate(20px, -20px);
+      width: 100%;
+    }
+  }
 }
