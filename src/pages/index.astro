@@ -1,7 +1,9 @@
 ---
+import type { ImageMetadata } from 'astro';
 import IndexLayout from '../layouts/IndexLayout.astro';
+import { Image } from 'astro:assets';
 
-const portfolioImages = import.meta.glob('../portfolio/*.png', { eager: true })
+const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfolio/*.png', { eager: true })
 ---
 
 
@@ -73,8 +75,7 @@ const portfolioImages = import.meta.glob('../portfolio/*.png', { eager: true })
         .map(fileName => {
           return (
             <li>
-              {/* @ts-ignore */}
-              <img src={portfolioImages[fileName].default.src} alt={`Portfolio image: custom face paint design.`} loading="lazy"/>
+              <Image src={portfolioImages[fileName].default} alt={`Portfolio image: custom face paint design.`} loading="lazy" />
             </li>
           );
       })}
@@ -213,6 +214,8 @@ const portfolioImages = import.meta.glob('../portfolio/*.png', { eager: true })
 
     img {
       object-fit:cover;
+      width: 100%;
+      height: auto;
       border-radius: var(--bl-border-radius-large);
     }
   }
