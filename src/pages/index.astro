@@ -2,11 +2,12 @@
 import IndexLayout from '../layouts/IndexLayout.astro';
 
 import fs from 'fs';
-import path from 'path';
+import { fileURLToPath } from 'url';
 
 // Get files from the public/images directory
 const imagesDir = new URL('../../public/imgs/portfolio', import.meta.url);
-const files = fs.readdirSync(imagesDir).filter(f => /\.png$/i.test(f));
+const imagesDirPath = fileURLToPath(imagesDir);
+const files = fs.readdirSync(imagesDirPath).filter(f => /\.png$/i.test(f));
 ---
 
 
