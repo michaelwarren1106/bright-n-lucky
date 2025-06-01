@@ -1,6 +1,15 @@
 ---
 import IndexLayout from '../layouts/IndexLayout.astro';
+
+import fs from 'fs';
+import path from 'path';
+
+// Get files from the public/images directory
+const imagesDir = new URL('../../public/imgs/portfolio', import.meta.url);
+const files = fs.readdirSync(imagesDir).filter(f => /\.png$/i.test(f));
 ---
+
+
 <IndexLayout title="Bright & Lucky Face Painting | Home">
 	<div class="hero full-width">
     <!-- <div class="content-grid"> -->
@@ -63,11 +72,21 @@ import IndexLayout from '../layouts/IndexLayout.astro';
   </section>
   <section class="full-width" id="portfolio">
     <h2>Portfolio</h2>
-    <p>this is a second thing</p>
+    <ul>
+      {files
+        .sort(() => Math.random() - 0.5) // sort files randomly every time
+        .map(file => {
+          return (
+            <li>
+              <img src={`/imgs/portfolio/${file}`} alt={`Portfolio image: custom ${file} face paint design.`} loading="lazy"/>
+            </li>
+          );
+      })}
+    </ul>
   </section>
   <section class="full-width" id="get-in-touch">
     <h2>Get in touch</h2>
-    <p>this is a second thing</p>
+    <p>Coming soon!</p>
   </section>
   <section class="full-width flow" id="paint-removal">
     <h2>Paint removal</h2>
@@ -78,12 +97,12 @@ import IndexLayout from '../layouts/IndexLayout.astro';
     <p>
       Some colors may be harder to remove than others, depending on the paint brand and the skin's pH. In those cases, applying skin-safe oil (like coconut or olive) to a cotton round or paper towel and gently rubbing in circles should help remove more stubborn colors. Again, avoid the eye area with these oils to prevent eye irritation.
     </p>
-    <h3>Face Gems</h3>
-    <p>Face gems are easily removed by gently lifting up the corner of the adhesive and pulling.</p>
     <h3>Water-resistant Face Paint</h3>
     <p>
       To remove water-resistant face paint, apply skin-safe oil (like olive oil or coconut oil) or micellar water to a cotton round or papertowel. Gently rub the oil into the paint in circles. The paint should start to “pill up” and can be easily wiped away.
     </p>
+    <h3>Face Gems</h3>
+    <p>Face gems are easily removed by gently lifting up the corner of the adhesive and pulling.</p>
     <h3>Glitter Tattoos</h3>
     <p>
       To remove water-resistant glitter tattoos, apply skin-safe oil (like olive oil or coconut oil) to a cotton round or paper towel. Allow the oil-saturated material to sit on the glitter tattoo for a few moments then gently rub in circles. The glitter tattoo should start to “pill up” and then can be peeled away.
@@ -181,14 +200,39 @@ import IndexLayout from '../layouts/IndexLayout.astro';
   #portfolio {
     background: var(--bl-color-green-800);
     color: var(--bl-color-text-body-inverse);
+    position: relative;
 
     h2 {
       text-shadow: 4px 4px 2px var(--bl-color-green-900);
+    }
+
+    ul {
+      margin-block-start: var(--bl-spacing-4x-large);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: var(--bl-spacing-x-large);
+      padding: 0;
+      list-style: none;
+    }
+
+    img {
+      object-fit:cover;
+      border-radius: var(--bl-border-radius-large);
     }
   }
 
   #get-in-touch {
     background: var(--bl-color-background-page-2);
+  }
+
+  @media (width > 600px) {
+    #portfolio ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--bl-spacing-x-large);
+      padding: 0;
+      list-style: none;
+    }
   }
 
 

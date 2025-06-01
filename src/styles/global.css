@@ -70,6 +70,7 @@
     font-family: var(--bl-font-body);
     font-size: var(--bl-font-size-medium);
     font-smooth: auto;
+    -webkit-font-smoothing: antialiased;
   }
 
   /* UTILITIES */
