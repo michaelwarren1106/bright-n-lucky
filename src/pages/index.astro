@@ -9,12 +9,11 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfol
 
 <IndexLayout title="Bright & Lucky Face Painting | Home">
 	<div class="hero full-width">
-    <!-- <div class="content-grid"> -->
-      <h1 class="font-display">Everyone deserves to shine!</h1>
-      <p></p>
+      <h1 class="font-display hero-heading">Everyone deserves to <span>shine</span>!</h1>
+
+      <p>Let our fun, friendly face painters bring some color and sparkle to your next celebration, grand opening or milestone event!</p>
 
       <a href="#get-in-touch" class="hero-cta">Get in touch</a>
-    <!-- </div> -->
   </div>
   <section class="full-width" id="services">
     <h2>Services</h2>
@@ -115,10 +114,57 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfol
 <style>
   .hero {
     min-height: 60vh;
-    background: var(--bl-color-green-100);
+    background-color: var(--bl-color-green-100);
+    background: linear-gradient(-45deg, var(--bl-color-green-100), var(--bl-color-green-300), var(--bl-color-green-500));
+	  background-size: 400% 400%;
     padding-block-start: 200px;
     text-align: center;
     padding-block: 200px;
+    animation: gradient 15s ease infinite;
+
+    & > * + * {
+      justify-self: center;
+      max-width: 60ch;
+    }
+
+    .hero-cta {
+      margin-block-start: var(--bl-spacing-3x-large);
+    }
+  }
+
+  .hero-heading {
+    position: relative;
+    isolation: isolate;
+    line-height: 1.2;
+
+    span {
+      animation: randomColor 25s 3s infinite;
+    }
+  }
+
+
+
+  .brush-stroke {
+    z-index: -1;
+    color: var(--bl-color-green-800);
+    clip-path: url(#brush-stroke-clip);
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    /* background: green; */
+    height: 48px;
+  }
+
+  #brush-stroke-svg {
+    width: 100%;
+    position: absolute;
+    top: -56px;
+    left: -100px;
+    stroke-dasharray: 1800;
+    stroke-dashoffset: -1800;
+    animation: stroke 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
   }
 
   section {
@@ -247,4 +293,26 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfol
       --grid-min-col-size: 250px;
     }
   }
+
+  @keyframes randomColor {
+    12% { color: rgb(195, 32, 173); text-shadow: 2px 2px 2px var(--bl-color-green-900)}
+    24% { color: orange; text-shadow: 2px 2px 2px var(--bl-color-green-900)}
+    36% { color: rgb(7, 212, 202); text-shadow: 2px 2px 2px var(--bl-color-green-900)}
+    48% { color: rgb(235, 221, 13); text-shadow: 2px 2px 2px var(--bl-color-green-900)}
+    60% { color: rgb(27, 231, 139); text-shadow: 2px 2px 2px var(--bl-color-green-900)}
+    72% { color: rgb(127, 20, 234); text-shadow: 2px 2px 2px var(--bl-color-green-900)}
+    100% { color: var(--bl-color-green-800);}
+  }
+
+  @keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 </style>

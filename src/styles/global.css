@@ -11,7 +11,9 @@
     --bl-color-background-page-2: #E8F0EA;
     --bl-color-background-page-3: #C6D0C8;
 
-    --bl-color-green-100: #C3EECE;
+    --bl-color-green-100: hsl(138, 56%, 86%);
+    --bl-color-green-300: hsl(138, 56%, 80%);
+    --bl-color-green-500: hsl(138, 56%, 74%);
     --bl-color-green-800: #2BA84A;
     --bl-color-green-900: #248232;
 
@@ -91,18 +93,18 @@
     text-decoration: none;
     border-radius: var(--bl-border-radius-pill);
     padding: var(--bl-spacing-x-small) var(--bl-spacing-3x-large);
-    color: var(--bl-color-green-800);
+    background: var(--bl-color-green-800);
+    color: var(--bl-color-text-body-inverse);
     border: 4px solid var(--bl-color-green-800);
     width: max-content;
     margin-inline: auto;
     user-select: none;
-    transition: background 250ms ease-in-out, color 250ms ease-in-out;
+    transition: border 250ms ease-in-out;
     outline: none;
 
     &:hover,
     &:focus-visible {
-      background: var(--bl-color-green-800);
-      color: var(--bl-color-text-body-inverse);
+      border-color: var(--bl-color-green-900);
     }
   }
 

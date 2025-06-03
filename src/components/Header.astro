@@ -50,6 +50,12 @@
   .home {
     display: block;
     width: max-content;
+    transition: color 250ms ease-in-out;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--bl-color-green-800);
+    }
   }
 
   nav {
@@ -62,10 +68,14 @@
     a {
       color: inherit;
       text-decoration: none;
+      outline: none;
+      transition: all 250ms ease-in-out;
 
-      &:hover {
+      &:hover,
+      &:focus-visible {
+        color: var(--bl-color-green-800);
         text-decoration: underline;
-        text-decoration-color: var(--bl-color-green-900);
+        text-decoration-color: var(--bl-color-green-800);
         text-decoration-thickness: 4px;
         text-underline-offset: var(--bl-spacing-x-small);
         text-decoration-skip-ink: none;
@@ -95,6 +105,7 @@
     align-self: start;
     flex: 0 0 32px;
     aspect-ratio: 1/1;
+    transition: color 250ms ease-in-out;
 
     &:hover {
       color: var(--bl-color-green-800);
@@ -111,13 +122,14 @@
 
     header {
       height: 80px;
-      padding-block: var(--bl-spacing-2x-large);
+      padding-block: unset;
     }
 
     nav {
       display: grid;
       gap: var(--bl-spacing-2x-large);
       grid-template-columns: 1fr 3fr;
+      align-items: center;
 
       ul {
         /* larger screen styles */
