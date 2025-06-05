@@ -1,7 +1,9 @@
 ---
 import type { ImageMetadata } from 'astro';
 import IndexLayout from '../layouts/IndexLayout.astro';
+// import Alert from '../components/Alert.astro';
 import { Image } from 'astro:assets';
+import ComingSoon from '../components/ComingSoon.astro';
 
 const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfolio/*.png', { eager: true })
 ---
@@ -15,7 +17,7 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfol
 
       <a href="#get-in-touch" class="hero-cta">Get in touch</a>
   </div>
-  <section class="full-width" id="services">
+  <section class="page-section full-width" id="services">
     <h2>Services</h2>
     <ul class="feature-grid">
       <li>
@@ -27,8 +29,9 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfol
           <p>We use only high-quality, cosmetic-grade, professional paints. We offer dozens of designs and are happy to create an option or two that coordinate with the theming of your event. Packages start at $100/hr for 10 people.</p>
           <h4>Water-resistant Face Painting</h4>
           <p>
-            We offer a limited menu of water and sweat-resistant face paint options using cosmetic-grade silicone paints from Body Color Cosmetics. Perfect for pool parties or just hot summer days, these paints last and look fantastic. Packages start at $125/hr for 10 people.
+            We offer a limited menu of water and sweat-resistant face paint options using cosmetic-grade silicone paints from Body Color Cosmetics. Perfect for pool parties or just hot summer days, these paints last and look fantastic.
           </p>
+          <a class="pricing" href="#pricing">Pricing information</a>
         </div>
       </li>
       <li>
@@ -38,8 +41,9 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfol
         <div class="service-description">
           <h3>Glitter tattoos</h3>
           <p>
-            Hand-made gem clusters are applied with double-sided medical tape for a skin-safe but lasting pop of sparkle. Gem packages can be added to a face paint package for an additional $25/hr.
+            Hand-made gem clusters are applied with double-sided medical tape for a skin-safe but lasting pop of sparkle.
           </p>
+          <a class="pricing" href="#pricing">Pricing information</a>
         </div>
       </li>
       <li>
@@ -49,8 +53,9 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfol
         <div class="service-description">
           <h3>Face gems</h3>
           <p>
-            Using skin-safe adhesive and cosmetic-grade glitter we can create beautiful sparkly skin art in dozens of designs. Glitter tattoos last for 3-5 days if properly cared for. Packages start at $125/hr for 15 glitter tattoos.
+            Using skin-safe adhesive and cosmetic-grade glitter we can create beautiful sparkly skin art in dozens of designs. Glitter tattoos last for 3-5 days if properly cared for.
           </p>
+          <a class="pricing" href="#pricing">Pricing information</a>
         </div>
       </li>
       <li>
@@ -60,13 +65,77 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfol
         <div class="service-description">
           <h3>Festival glitter</h3>
           <p>
-            We use cosmetic-grade chunky glitter gels and balms to create eye-catching, colorful designs on faces, beards, and in hair. Perfect for parties, concerts, and even weddings our packages start at $125/hr for 15 people.
+            We use cosmetic-grade chunky glitter gels and balms to create eye-catching, colorful designs on faces, beards, and in hair. Perfect for parties, concerts, and even weddings!
           </p>
+          <a class="pricing" href="#pricing">Pricing information</a>
         </div>
       </li>
     </ul>
+    <section id="pricing">
+      <h2>Pricing</h2>
+
+      <p>Generally speaking, our packages are priced per hour with minimums based on the expected attendance of your event.</p>
+
+      <div>
+        <h3>Face painting</h3>
+        <p>$125/hr for the first hour, $50 for each additional 30 minute increment</p>
+        <h4>Minimum hours per package</h4>
+        <ul>
+          <li>10 people / 1 hour</li>
+          <li>20 people / 2 hours</li>
+          <li>30 people / 3 hours</li>
+        </ul>
+        <h4>Large events</h4>
+        <p>For events larger than 30 people, <a href="#get-in-touch">get in touch</a> and lets create a custom package!</p>
+      </div>
+
+      <div>
+        <h3>Face gems</h3>
+        <p>$2.50 per person as an addon to a face painting package</p>
+      </div>
+
+      <div>
+        <h3>Waterproof face painting</h3>
+        <p>$125/hr</p>
+        <h4>Minimum hours per package</h4>
+        <ul>
+          <li>10 people / 1 hour</li>
+          <li>20 people / 2 hours</li>
+          <li>30 people / 3 hours</li>
+        </ul>
+        <h4>Large events</h4>
+        <p>For events larger than 30 people, <a href="#get-in-touch">get in touch</a> and lets create a custom package!</p>
+      </div>
+
+      <div>
+        <h3>Glitter tattoos</h3>
+        <p>$125/hr</p>
+        <h4>Minimum hours per package</h4>
+        <ul>
+          <li>15 tattoos / 1 hour</li>
+          <li>30 tattoos / 2 hours</li>
+          <li>45 tattoos / 3 hours</li>
+        </ul>
+        <h4>Large events</h4>
+        <p>For events with more than 45 tattoos, <a href="#get-in-touch">get in touch</a> and lets create a custom package!</p>
+      </div>
+
+
+      <div>
+        <h3>Festival glitter</h3>
+        <p>$125/hr</p>
+        <h4>Minimum hours per package</h4>
+        <ul>
+          <li>15 people / 1 hour</li>
+          <li>30 people / 2 hours</li>
+          <li>45 people / 3 hours</li>
+        </ul>
+        <h4>Large events</h4>
+        <p>For events larger than 45 people, <a href="#get-in-touch">get in touch</a> and lets create a custom package!</p>
+      </div>
+    </section>
   </section>
-  <section class="full-width" id="portfolio">
+  <section class="page-section full-width" id="portfolio">
     <h2>Portfolio</h2>
     <ul>
       {Object.keys(portfolioImages)
@@ -80,11 +149,28 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfol
       })}
     </ul>
   </section>
-  <section class="full-width" id="get-in-touch">
+  <section class="page-section full-width" id="get-in-touch">
     <h2>Get in touch</h2>
-    <p>Coming soon!</p>
+    <ComingSoon />
+    <!-- <Alert type="success" message="this is an alert"></Alert>
+    <form id="contact">
+      <div class="form-field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required>
+      </div>
+      <div class="form-field">
+        <label for="name">Email address</label>
+        <input type="email" id="email" name="email" placeholder="Email address" required>
+      </div>
+      <div class="form-field">
+        <label for="name">Message</label>
+        <textarea id="msg" name="msg" required></textarea>
+      </div>
+      <input type="text" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+      <button type="submit">Send email</button>
+    </form> -->
   </section>
-  <section class="full-width flow" id="paint-removal">
+  <section class="page-section full-width flow" id="paint-removal">
     <h2>Paint removal</h2>
     <h3>Face Paints</h3>
     <p>
@@ -110,6 +196,25 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfol
 
   </section>
 </IndexLayout>
+
+<script>
+
+  import { actions } from "astro:actions";
+
+  document.querySelector('#contact')?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form as any);
+    const { error } = await actions.send(formData);
+
+    if (!error) {
+      alert('Email sent successfully!');
+      (form as HTMLFormElement).reset();
+    } else {
+      alert('There was an error sending your email. Please try again later.');
+    }
+  });
+</script>
 
 <style>
   .hero {
@@ -142,32 +247,7 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfol
     }
   }
 
-
-
-  .brush-stroke {
-    z-index: -1;
-    color: var(--bl-color-green-800);
-    clip-path: url(#brush-stroke-clip);
-    position: absolute;
-    bottom: 10%;
-    width: 100%;
-    /* background: green; */
-    height: 48px;
-  }
-
-  #brush-stroke-svg {
-    width: 100%;
-    position: absolute;
-    top: -56px;
-    left: -100px;
-    stroke-dasharray: 1800;
-    stroke-dashoffset: -1800;
-    animation: stroke 1s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;
-  }
-
-  section {
+  .page-section {
     position: relative;
     padding-block-start: var(--bl-spacing-3x-large);
     padding-block-end: calc(130px + (var(--bl-spacing-3x-large) * 2));
@@ -186,7 +266,7 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfol
     font-size: var(--bl-font-size-3x-large);
   }
 
-  section::before {
+  .page-section::before {
     content: '';
     display: block;
     height: 129px; /** ooh magic */
@@ -201,7 +281,7 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfol
   /* SERVICES */
   #services {
     ul {
-      --feature-gap: var(--bl-spacing-3x-large);
+      --feature-gap: var(--bl-spacing-4x-large);
       --feature-max-col-count: 2;
       --feature-min-col-size: 350px;
       list-style: none;
@@ -210,6 +290,7 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfol
 
     /* service category heading */
     h3 {
+      font-family: var(--bl-font-body);
       font-size: var(--bl-font-size-x-large);
       font-weight: 700;
     }
@@ -237,6 +318,36 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfol
       gap: var(--bl-spacing-large);
       max-width: 70ch;
       line-height: 1.75;
+    }
+
+    .pricing {
+      display: inline-flex;
+      gap: var(--bl-spacing-medium);
+      align-items: center;
+
+      &:before {
+        content: url(./imgs/dollar-sign.svg);
+        width: 14px;
+        height: 24px;
+        flex: 0 0 auto;
+      }
+
+    }
+  }
+
+  #pricing {
+    margin-block: var(--bl-spacing-x-large);
+    display: grid;
+    gap: var(--bl-spacing-x-large);
+
+    & h3 {
+      font-family: var(--bl-font-display);
+      font-size: var(--bl-font-size-x-large);
+      font-weight: 700;
+    }
+
+    div > * + * {
+      margin-block-start: 1.5em;
     }
   }
 
@@ -268,12 +379,16 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfol
 
   #get-in-touch {
     background: var(--bl-color-background-page-2);
+
+    form {
+      margin-inline: auto
+    }
   }
 
   @media (width > 600px) {
     #portfolio ul {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
       gap: var(--bl-spacing-x-large);
       padding: 0;
       list-style: none;
@@ -282,8 +397,13 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfol
 
 
   @media (width > 900px) {
-    section::before {
+    .page-section::before {
       clip-path: var(--bl-shape-wave-clip-high);
+    }
+
+    #pricing {
+      max-width: 80%;
+      margin-inline: auto;
     }
   }
 

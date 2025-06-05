@@ -2,8 +2,8 @@
 
   .content-grid {
     --padding-inline: 1rem;
-    --content-max-width: 1200px;
-    --breakout-max-width: 1400px;
+    --content-max-width: 1000px;
+    --breakout-max-width: 1200px;
 
     --breakout-size: calc(
       (var(--breakout-max-width) - var(--content-max-width)) / 2
@@ -100,7 +100,7 @@
 
   }
 
-  @media (width > 600px) {
+  @media (width > 700px) {
     .feature-grid {
       gap: var(--feature-grid-gap);
 

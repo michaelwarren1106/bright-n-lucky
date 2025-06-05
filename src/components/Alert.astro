@@ -1,0 +1,26 @@
+---
+interface Props {
+  type: 'success' | 'error';
+  message?: string;
+}
+
+const { type, message } = Astro.props;
+---
+
+<div class={`alert ${type}`} role="alert">
+  {message && <div class="message" aria-live="polite">
+    {message}
+  </div>}
+</div>
+
+
+<style>
+  .alert {
+
+  }
+
+  .alert.success {
+    background-color: var(--bl-color-green-100);
+    color: var(--bl-color-green-900);
+  }
+</style>
