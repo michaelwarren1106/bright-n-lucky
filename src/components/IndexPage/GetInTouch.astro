@@ -1,0 +1,268 @@
+---
+---
+
+<section class="page-section full-width" id="get-in-touch">
+  <h2>Get in touch</h2>
+  <p>Fill out a few details below to send us a message about bookings or questions and we will get back with you quickly!</p>
+  <form id="contact">
+    <div class="alert" role="alert" aria-live="polite"></div>
+    <div class="form-field">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required aria-describedby="name-error">
+      <span class="error" id="name-error" aria-live="polite"></span>
+    </div>
+    <div class="form-field">
+      <label for="name">Email address</label>
+      <input type="email" id="email" name="email" placeholder="Email address" required aria-describedby="email-error">
+      <span class="error" id="email-error" aria-live="polite"></span>
+    </div>
+    <div class="form-field">
+      <label for="referrer">How did you hear about us?</label>
+      <select name="referrer" id="referrer" required aria-describedby="referrer-error">
+        <option value="" disabled selected>Select an option</option>
+        <option value="friend">Google</option>
+        <option value="social-media">Facebook</option>
+        <option value="search-engine">Saw at an event</option>
+        <option value="event">From a friend</option>
+        <option value="other">Other</option>
+      </select>
+      <span class="chevron">
+        <img src="/imgs/chevron-down.svg" alt="" />
+      </span>
+      <span class="error" id="referrer-error" aria-live="polite"></span>
+    </div>
+    <div class="form-field">
+      <label for="name">Message</label>
+      <textarea id="msg" name="msg" required aria-describedby="msg-error" minlength="20"></textarea>
+      <span id="msg-error" class="error" aria-live="polite"></span>
+    </div>
+    <input type="text" name="website" autocomplete="off" tabindex="-1" class="honey" aria-hidden="true">
+    <button type="submit" class="hero-cta">Send email</button>
+  </form>
+
+  <div class="plain-email">
+    <h4>Contact form not working?</h4>
+    <p>
+      Send us an email the old fashioned way: <br/>
+      <span>brightnluckyfaces</span><span style="display:none;">-bottrap-</span><span>@gmail.com</span>
+    </p>
+  </div>
+</section>
+
+<script>
+
+  import { actions } from "astro:actions";
+
+  document.querySelector('#contact')?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form as any);
+    const { error } = await actions.send(formData);
+
+    const alert: HTMLDivElement = document.querySelector('.alert')!;
+
+    if (!error) {
+      alert.dataset.type = 'success';
+      alert.textContent = 'Email sent! We will be in touch soon.';
+      (form as HTMLFormElement).reset();
+    } else {
+      alert.dataset.type = 'error';
+      alert.textContent = 'Something went wrong. Please try again later.';
+    }
+  });
+
+  // validation
+  const formFields = document.querySelectorAll('input,select,textarea');
+  formFields.forEach((field) => {
+    // prevent default browser error message
+    field.addEventListener('invalid', (event) => {
+      event.preventDefault();
+    });
+
+    // add validation on blur
+    field.addEventListener('blur', (event) => {
+      const el = (event.target as HTMLInputElement);
+      el.classList.add('invalid');
+      // Show error message if the field is invalid
+      const errorMsgEl = el.parentElement?.querySelector('.error')!;
+      if (el.validity.valid) {
+        errorMsgEl.textContent = '';
+        el.classList.remove('invalid');
+      } else {
+        switch (el.id) {
+          case 'name':
+            errorMsgEl.textContent = 'Please enter your name.';
+            break;
+          case 'email':
+            errorMsgEl.textContent = 'Please enter a valid email address.';
+            break;
+          case 'referrer':
+            errorMsgEl.textContent = 'Please select an option.';
+            break;
+          case 'msg':
+            errorMsgEl.textContent = 'Please enter a message.';
+            break;
+          default:
+            errorMsgEl.textContent = 'This field is required.';
+        }
+      }
+    });
+  });
+  // clean up error messages and alerts
+  document.querySelector('#contact')?.addEventListener('input', (event) => {
+    (event.target as HTMLElement).classList.remove('invalid');
+    const alert: HTMLDivElement = document.querySelector('.alert')!;
+    // cleanup alert
+    delete alert.dataset.type;
+    alert.textContent = '';
+  });
+</script>
+
+<style>
+  #get-in-touch {
+    background: var(--bl-color-background-page-2);
+    gap: var(--bl-spacing-2x-large) 0; /* row gap, no column gap */
+
+    form {
+      margin-inline: auto;
+    }
+
+    p, h4 {
+      max-width: 60ch;
+      margin-inline: auto;
+      text-align: center;
+    }
+  }
+
+  .plain-email {
+    font-size: 80%;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--bl-spacing-large);
+    width: 80%;
+    max-width: 50ch;
+    margin-inline: auto;
+    color: var(--bl-color-text-body);
+  }
+
+  input,
+  select,
+  textarea {
+    border-radius: var(--bl-border-radius-medium);
+    border: 2px solid #aaa;
+    padding-inline-start: var(--bl-spacing-medium);
+    outline: none;
+  }
+
+  input, select {
+    height: 48px;
+  }
+
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  input:not(.invalid):focus-visible,
+  select:not(.invalid):focus-visible,
+  textarea:not(.invalid):focus-visible {
+    outline: 1px solid var(--bl-color-green-800);
+  }
+
+  input.invalid:focus-visible,
+  select.invalid:focus-visible,
+  textarea.invalid:focus-visible {
+    outline: 1px solid var(--bl-color-red-500);
+    outline-offset: 2px;
+  }
+
+  select {
+    appearance:none;
+  }
+
+  .form-field {
+    position: relative;
+  }
+
+  .form-field:has(select) .chevron {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 31px; /* magic number to put the caret in the select */
+    right: 4px;
+    height: 40px;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+    border-radius: var(--bl-border-radius-small);
+    transition: background-color 0.2s ease-in-out;
+
+    img {
+      width: 18px;
+      aspect-ratio: 1;
+    }
+  }
+
+  .form-field:has(select:hover, select:focus-visible) .chevron {
+    background-color: var(--bl-color-green-100);
+  }
+
+  /* validation */
+  .form-field .error {
+    display: none;
+    color: var(--bl-color-red-500);
+    font-size: var(--bl-font-size-small);
+    margin-top: var(--bl-spacing-x-small);
+  }
+
+  .form-field:has(.invalid) {
+    input, select, textarea {
+      border-color: var(--bl-color-red-500);
+    }
+    .error {
+      display: block;
+    }
+  }
+
+  .alert {
+    border-radius: var(--bl-border-radius-medium);
+    padding: var(--bl-spacing-medium);
+  }
+
+  .alert:not([data-type]) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .alert[data-type="success"] {
+    background-color: var(--bl-color-green-100);
+    color: var(--bl-color-green-900);
+    border: 1px solid var(--bl-color-green-900);
+  }
+  .alert[data-type="error"] {
+    background-color: var(--bl-color-red-100);
+    color: var(--bl-color-red-500);
+    border: 1px solid var(--bl-color-red-500);
+  }
+
+  /* we love bots */
+  input.honey {
+    position:absolute;
+    left:-9999px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+  }
+</style>

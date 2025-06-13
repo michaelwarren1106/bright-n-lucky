@@ -1,0 +1,58 @@
+---
+import { Image } from 'astro:assets';
+const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../../portfolio/*.png', { eager: true })
+---
+
+<section class="page-section full-width" id="portfolio">
+  <h2>Portfolio</h2>
+  <ul>
+    {Object.keys(portfolioImages)
+      .sort(() => Math.random() - 0.5) // sort files randomly every time
+      .map(fileName => {
+        return (
+          <li>
+            <Image src={portfolioImages[fileName].default} alt={`Portfolio image: custom face paint design.`} loading="lazy" />
+          </li>
+        );
+    })}
+  </ul>
+</section>
+
+<style>
+  #portfolio {
+    background: var(--bl-color-green-800);
+    color: var(--bl-color-text-body-inverse);
+    position: relative;
+
+    h2 {
+      text-shadow: 4px 4px 2px var(--bl-color-green-900);
+    }
+
+    ul {
+      margin-block-start: var(--bl-spacing-4x-large);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: var(--bl-spacing-x-large);
+      padding: 0;
+      list-style: none;
+    }
+
+    img {
+      object-fit:cover;
+      width: 100%;
+      height: auto;
+      border-radius: var(--bl-border-radius-large);
+    }
+  }
+
+
+  @media (width > 600px) {
+    #portfolio ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: var(--bl-spacing-x-large);
+      padding: 0;
+      list-style: none;
+    }
+  }
+</style>

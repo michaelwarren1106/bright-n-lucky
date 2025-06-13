@@ -1,0 +1,205 @@
+---
+import { Image } from 'astro:assets';
+const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../../portfolio/*.png', { eager: true })
+---
+
+<section class="page-section full-width" id="services">
+    <h2>Services</h2>
+    <ul class="feature-grid">
+      <li>
+        <div class="pattern-dots-lg">
+          <img src="/imgs/face-paint.png" alt="A smiling little redheaded girl with a unicorn face paint design with an orange horn, and painted sparkels with sparkly glitter on her cheeks.">
+        </div>
+        <div class="service-description">
+          <h3>Face painting</h3>
+          <p>We use only high-quality, cosmetic-grade, professional paints. We offer dozens of designs and are happy to create an option or two that coordinate with the theming of your event.</p>
+          <h4>Water-resistant Face Painting</h4>
+          <p>
+            We offer a limited menu of water and sweat-resistant face paint options using cosmetic-grade silicone paints from Body Color Cosmetics. Perfect for pool parties or just hot summer days, these paints last and look fantastic.
+          </p>
+          <a class="pricing" href="#pricing">Pricing information</a>
+        </div>
+      </li>
+      <li>
+        <div class="pattern-dots-lg">
+          <img src="/imgs/glitter-tattoo.png" alt="A glitter snake design with rainbow glitter, starting from to bottom with a red, gold, green, blue, and purple glitter gradient.">
+        </div>
+        <div class="service-description">
+          <h3>Glitter tattoos</h3>
+          <p>
+            Hand-made gem clusters are applied with double-sided medical tape for a skin-safe but lasting pop of sparkle.
+          </p>
+          <a class="pricing" href="#pricing">Pricing information</a>
+        </div>
+      </li>
+      <li>
+        <div class="pattern-dots-lg">
+          <img src="/imgs/face-gem.png" alt="Little girl with a mermaid face paint design on her forehead and a cluster of gems in the center between her eyebrows.">
+        </div>
+        <div class="service-description">
+          <h3>Face gems</h3>
+          <p>
+            Using skin-safe adhesive and cosmetic-grade glitter we can create beautiful sparkly skin art in dozens of designs. Glitter tattoos last for 3-5 days if properly cared for.
+          </p>
+          <a class="pricing" href="#pricing">Pricing information</a>
+        </div>
+      </li>
+      <li>
+        <div class="pattern-dots-lg">
+          <img src="/imgs/glitter-bar.png" alt="Woman turned to the side wearing a straw hat with a blue glitter wave design around her left eye at her temples.">
+        </div>
+        <div class="service-description">
+          <h3>Festival glitter</h3>
+          <p>
+            We use cosmetic-grade chunky glitter gels and balms to create eye-catching, colorful designs on faces, beards, and in hair. Perfect for parties, concerts, and even weddings!
+          </p>
+          <a class="pricing" href="#pricing">Pricing information</a>
+        </div>
+      </li>
+    </ul>
+    <section id="pricing">
+      <h2>Pricing</h2>
+
+      <p>Generally speaking, our packages are priced per hour with minimums based on the expected attendance of your event.</p>
+
+      <div>
+        <h3>Face painting</h3>
+        <p>$125/hr for the first hour, $50 for each additional 30 minute increment</p>
+        <h4>Minimum hours per package</h4>
+        <ul>
+          <li>10 people / 1 hour</li>
+          <li>20 people / 2 hours</li>
+          <li>30 people / 3 hours</li>
+        </ul>
+        <h4>Large events</h4>
+        <p>For events larger than 30 people, <a href="#get-in-touch">get in touch</a> and lets create a custom package!</p>
+      </div>
+
+      <div>
+        <h3>Face gems</h3>
+        <p>$2.50 per person as an addon to a face painting package</p>
+      </div>
+
+      <div>
+        <h3>Waterproof face painting</h3>
+        <p>$125/hr</p>
+        <h4>Minimum hours per package</h4>
+        <ul>
+          <li>10 people / 1 hour</li>
+          <li>20 people / 2 hours</li>
+          <li>30 people / 3 hours</li>
+        </ul>
+        <h4>Large events</h4>
+        <p>For events larger than 30 people, <a href="#get-in-touch">get in touch</a> and lets create a custom package!</p>
+      </div>
+
+      <div>
+        <h3>Glitter tattoos</h3>
+        <p>$125/hr</p>
+        <h4>Minimum hours per package</h4>
+        <ul>
+          <li>15 tattoos / 1 hour</li>
+          <li>30 tattoos / 2 hours</li>
+          <li>45 tattoos / 3 hours</li>
+        </ul>
+        <h4>Large events</h4>
+        <p>For events with more than 45 tattoos, <a href="#get-in-touch">get in touch</a> and lets create a custom package!</p>
+      </div>
+
+
+      <div>
+        <h3>Festival glitter</h3>
+        <p>$125/hr</p>
+        <h4>Minimum hours per package</h4>
+        <ul>
+          <li>15 people / 1 hour</li>
+          <li>30 people / 2 hours</li>
+          <li>45 people / 3 hours</li>
+        </ul>
+        <h4>Large events</h4>
+        <p>For events larger than 45 people, <a href="#get-in-touch">get in touch</a> and lets create a custom package!</p>
+      </div>
+    </section>
+  </section>
+
+<style>
+  /* SERVICES */
+  #services {
+    ul {
+      --feature-gap: var(--bl-spacing-4x-large);
+      --feature-max-col-count: 2;
+      --feature-min-col-size: 350px;
+      list-style: none;
+      padding: 0;
+    }
+
+    /* service category heading */
+    h3 {
+      font-family: var(--bl-font-body);
+      font-size: var(--bl-font-size-x-large);
+      font-weight: 700;
+    }
+
+    .pattern-dots-lg {
+      width: 300px;
+      aspect-ratio: 1;
+      flex: 0 0 auto;
+      border-radius: var(--bl-border-radius-large);
+      align-self: start;
+      color: var(--bl-color-green-800);
+
+      img {
+        border-radius: var(--bl-border-radius-large);
+      }
+    }
+
+    .feature-grid {
+      margin-block-start: var(--bl-spacing-4x-large);
+    }
+
+    .service-description {
+      display: flex;
+      flex-direction: column;
+      gap: var(--bl-spacing-large);
+      max-width: 70ch;
+      line-height: 1.75;
+    }
+
+    .pricing {
+      display: inline-flex;
+      gap: var(--bl-spacing-medium);
+      align-items: center;
+
+      &:before {
+        content: url(./imgs/dollar-sign.svg);
+        width: 14px;
+        height: 24px;
+        flex: 0 0 auto;
+      }
+
+    }
+  }
+
+  #pricing {
+    margin-block: var(--bl-spacing-x-large);
+    display: grid;
+    gap: var(--bl-spacing-x-large);
+
+    & h3 {
+      font-family: var(--bl-font-display);
+      font-size: var(--bl-font-size-x-large);
+      font-weight: 700;
+    }
+
+    div > * + * {
+      margin-block-start: 1.5em;
+    }
+  }
+
+  @media (width > 1200px) {
+    #services ul {
+      --grid-max-col-count: 4;
+      --grid-min-col-size: 250px;
+    }
+  }
+</style>

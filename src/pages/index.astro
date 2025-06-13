@@ -1,13 +1,13 @@
 ---
 import type { ImageMetadata } from 'astro';
 import IndexLayout from '../layouts/IndexLayout.astro';
-// import Alert from '../components/Alert.astro';
-import { Image } from 'astro:assets';
-import ComingSoon from '../components/ComingSoon.astro';
 
-const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfolio/*.png', { eager: true })
+
+import GetInTouch from '../components/IndexPage/GetInTouch.astro';
+import PaintRemoval from '../components/IndexPage/PaintRemoval.astro';
+import Portfolio from '../components/IndexPage/Portfolio.astro';
+import Services from '../components/IndexPage/Services.astro';
 ---
-
 
 <IndexLayout title="Bright & Lucky Face Painting | Home">
 	<div class="hero full-width">
@@ -17,236 +17,14 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfol
 
       <a href="#get-in-touch" class="hero-cta">Get in touch</a>
   </div>
-  <section class="page-section full-width" id="services">
-    <h2>Services</h2>
-    <ul class="feature-grid">
-      <li>
-        <div class="pattern-dots-lg">
-          <img src="/imgs/face-paint.png" alt="A smiling little redheaded girl with a unicorn face paint design with an orange horn, and painted sparkels with sparkly glitter on her cheeks.">
-        </div>
-        <div class="service-description">
-          <h3>Face painting</h3>
-          <p>We use only high-quality, cosmetic-grade, professional paints. We offer dozens of designs and are happy to create an option or two that coordinate with the theming of your event.</p>
-          <h4>Water-resistant Face Painting</h4>
-          <p>
-            We offer a limited menu of water and sweat-resistant face paint options using cosmetic-grade silicone paints from Body Color Cosmetics. Perfect for pool parties or just hot summer days, these paints last and look fantastic.
-          </p>
-          <a class="pricing" href="#pricing">Pricing information</a>
-        </div>
-      </li>
-      <li>
-        <div class="pattern-dots-lg">
-          <img src="/imgs/glitter-tattoo.png" alt="A glitter snake design with rainbow glitter, starting from to bottom with a red, gold, green, blue, and purple glitter gradient.">
-        </div>
-        <div class="service-description">
-          <h3>Glitter tattoos</h3>
-          <p>
-            Hand-made gem clusters are applied with double-sided medical tape for a skin-safe but lasting pop of sparkle.
-          </p>
-          <a class="pricing" href="#pricing">Pricing information</a>
-        </div>
-      </li>
-      <li>
-        <div class="pattern-dots-lg">
-          <img src="/imgs/face-gem.png" alt="Little girl with a mermaid face paint design on her forehead and a cluster of gems in the center between her eyebrows.">
-        </div>
-        <div class="service-description">
-          <h3>Face gems</h3>
-          <p>
-            Using skin-safe adhesive and cosmetic-grade glitter we can create beautiful sparkly skin art in dozens of designs. Glitter tattoos last for 3-5 days if properly cared for.
-          </p>
-          <a class="pricing" href="#pricing">Pricing information</a>
-        </div>
-      </li>
-      <li>
-        <div class="pattern-dots-lg">
-          <img src="/imgs/glitter-bar.png" alt="Woman turned to the side wearing a straw hat with a blue glitter wave design around her left eye at her temples.">
-        </div>
-        <div class="service-description">
-          <h3>Festival glitter</h3>
-          <p>
-            We use cosmetic-grade chunky glitter gels and balms to create eye-catching, colorful designs on faces, beards, and in hair. Perfect for parties, concerts, and even weddings!
-          </p>
-          <a class="pricing" href="#pricing">Pricing information</a>
-        </div>
-      </li>
-    </ul>
-    <section id="pricing">
-      <h2>Pricing</h2>
-
-      <p>Generally speaking, our packages are priced per hour with minimums based on the expected attendance of your event.</p>
-
-      <div>
-        <h3>Face painting</h3>
-        <p>$125/hr for the first hour, $50 for each additional 30 minute increment</p>
-        <h4>Minimum hours per package</h4>
-        <ul>
-          <li>10 people / 1 hour</li>
-          <li>20 people / 2 hours</li>
-          <li>30 people / 3 hours</li>
-        </ul>
-        <h4>Large events</h4>
-        <p>For events larger than 30 people, <a href="#get-in-touch">get in touch</a> and lets create a custom package!</p>
-      </div>
-
-      <div>
-        <h3>Face gems</h3>
-        <p>$2.50 per person as an addon to a face painting package</p>
-      </div>
-
-      <div>
-        <h3>Waterproof face painting</h3>
-        <p>$125/hr</p>
-        <h4>Minimum hours per package</h4>
-        <ul>
-          <li>10 people / 1 hour</li>
-          <li>20 people / 2 hours</li>
-          <li>30 people / 3 hours</li>
-        </ul>
-        <h4>Large events</h4>
-        <p>For events larger than 30 people, <a href="#get-in-touch">get in touch</a> and lets create a custom package!</p>
-      </div>
-
-      <div>
-        <h3>Glitter tattoos</h3>
-        <p>$125/hr</p>
-        <h4>Minimum hours per package</h4>
-        <ul>
-          <li>15 tattoos / 1 hour</li>
-          <li>30 tattoos / 2 hours</li>
-          <li>45 tattoos / 3 hours</li>
-        </ul>
-        <h4>Large events</h4>
-        <p>For events with more than 45 tattoos, <a href="#get-in-touch">get in touch</a> and lets create a custom package!</p>
-      </div>
-
-
-      <div>
-        <h3>Festival glitter</h3>
-        <p>$125/hr</p>
-        <h4>Minimum hours per package</h4>
-        <ul>
-          <li>15 people / 1 hour</li>
-          <li>30 people / 2 hours</li>
-          <li>45 people / 3 hours</li>
-        </ul>
-        <h4>Large events</h4>
-        <p>For events larger than 45 people, <a href="#get-in-touch">get in touch</a> and lets create a custom package!</p>
-      </div>
-    </section>
-  </section>
-  <section class="page-section full-width" id="portfolio">
-    <h2>Portfolio</h2>
-    <ul>
-      {Object.keys(portfolioImages)
-        .sort(() => Math.random() - 0.5) // sort files randomly every time
-        .map(fileName => {
-          return (
-            <li>
-              <Image src={portfolioImages[fileName].default} alt={`Portfolio image: custom face paint design.`} loading="lazy" />
-            </li>
-          );
-      })}
-    </ul>
-  </section>
-  <section class="page-section full-width" id="get-in-touch">
-    <h2>Get in touch</h2>
-    <ComingSoon />
-    <!-- <Alert type="success" message="this is an alert"></Alert>
-    <form id="contact">
-      <div class="form-field">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your name" required>
-      </div>
-      <div class="form-field">
-        <label for="name">Email address</label>
-        <input type="email" id="email" name="email" placeholder="Email address" required>
-      </div>
-      <div class="form-field">
-        <label for="name">Message</label>
-        <textarea id="msg" name="msg" required></textarea>
-      </div>
-      <input type="text" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
-      <button type="submit">Send email</button>
-    </form> -->
-  </section>
-  <section class="page-section full-width flow" id="paint-removal">
-    <h2>Paint removal</h2>
-    <h3>Face Paints</h3>
-    <p>
-      To remove your face paint, use a mild liquid soap and gently rub the soap over the design in circles, avoiding the eye area. Use a damp terry cloth washcloth to wipe off the soap; the gentle exfoliating of the washcloth helps with color removal. For paint around the eye area, use a damp washcloth to gently wipe away paint, but avoid using soap to prevent eye irritation.
-    </p>
-    <p>
-      Some colors may be harder to remove than others, depending on the paint brand and the skin's pH. In those cases, applying skin-safe oil (like coconut or olive) to a cotton round or paper towel and gently rubbing in circles should help remove more stubborn colors. Again, avoid the eye area with these oils to prevent eye irritation.
-    </p>
-    <h3>Water-resistant Face Paint</h3>
-    <p>
-      To remove water-resistant face paint, apply skin-safe oil (like olive oil or coconut oil) or micellar water to a cotton round or papertowel. Gently rub the oil into the paint in circles. The paint should start to “pill up” and can be easily wiped away.
-    </p>
-    <h3>Face Gems</h3>
-    <p>Face gems are easily removed by gently lifting up the corner of the adhesive and pulling.</p>
-    <h3>Glitter Tattoos</h3>
-    <p>
-      To remove water-resistant glitter tattoos, apply skin-safe oil (like olive oil or coconut oil) to a cotton round or paper towel. Allow the oil-saturated material to sit on the glitter tattoo for a few moments then gently rub in circles. The glitter tattoo should start to “pill up” and then can be peeled away.
-    </p>
-    <h3>Festival Glitter</h3>
-    <p>
-      To remove chunky glitter gels and balms from skin, use a plastic card (like credit card material, but we don't recommend using an actual credit or debit card) and lightly scrape off the glitter. Wipe the card clean with a paper towel and dispose of the glitter in the trash. To remove chunky glitter gels and balms from hair, use a fine-tooth comb and, starting at the root of the hair, gently comb through to the tip. Use a paper towel to wipe the comb clean and dispose of the glitter in the trash.
-    </p>
-
-  </section>
+  <Services />
+  <Portfolio />
+  <GetInTouch />
+  <PaintRemoval />
 </IndexLayout>
 
-<script>
-
-  import { actions } from "astro:actions";
-
-  document.querySelector('#contact')?.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const formData = new FormData(form as any);
-    const { error } = await actions.send(formData);
-
-    if (!error) {
-      alert('Email sent successfully!');
-      (form as HTMLFormElement).reset();
-    } else {
-      alert('There was an error sending your email. Please try again later.');
-    }
-  });
-</script>
-
-<style>
-  .hero {
-    min-height: 60vh;
-    background-color: var(--bl-color-green-100);
-    background: linear-gradient(-45deg, var(--bl-color-green-100), var(--bl-color-green-300), var(--bl-color-green-500));
-	  background-size: 400% 400%;
-    padding-block-start: 200px;
-    text-align: center;
-    padding-block: 200px;
-    animation: gradient 15s ease infinite;
-
-    & > * + * {
-      justify-self: center;
-      max-width: 60ch;
-    }
-
-    .hero-cta {
-      margin-block-start: var(--bl-spacing-3x-large);
-    }
-  }
-
-  .hero-heading {
-    position: relative;
-    isolation: isolate;
-    line-height: 1.2;
-
-    span {
-      animation: randomColor 25s 3s infinite;
-    }
-  }
-
+<style is:global>
+  /* global styles needed for the section styles that are in different components */
   .page-section {
     position: relative;
     padding-block-start: var(--bl-spacing-3x-large);
@@ -278,134 +56,41 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../portfol
     clip-path: var(--bl-shape-wave-clip-low);
   }
 
-  /* SERVICES */
-  #services {
-    ul {
-      --feature-gap: var(--bl-spacing-4x-large);
-      --feature-max-col-count: 2;
-      --feature-min-col-size: 350px;
-      list-style: none;
-      padding: 0;
-    }
-
-    /* service category heading */
-    h3 {
-      font-family: var(--bl-font-body);
-      font-size: var(--bl-font-size-x-large);
-      font-weight: 700;
-    }
-
-    .pattern-dots-lg {
-      width: 300px;
-      aspect-ratio: 1;
-      flex: 0 0 auto;
-      border-radius: var(--bl-border-radius-large);
-      align-self: start;
-      color: var(--bl-color-green-800);
-
-      img {
-        border-radius: var(--bl-border-radius-large);
-      }
-    }
-
-    .feature-grid {
-      margin-block-start: var(--bl-spacing-4x-large);
-    }
-
-    .service-description {
-      display: flex;
-      flex-direction: column;
-      gap: var(--bl-spacing-large);
-      max-width: 70ch;
-      line-height: 1.75;
-    }
-
-    .pricing {
-      display: inline-flex;
-      gap: var(--bl-spacing-medium);
-      align-items: center;
-
-      &:before {
-        content: url(./imgs/dollar-sign.svg);
-        width: 14px;
-        height: 24px;
-        flex: 0 0 auto;
-      }
-
-    }
-  }
-
-  #pricing {
-    margin-block: var(--bl-spacing-x-large);
-    display: grid;
-    gap: var(--bl-spacing-x-large);
-
-    & h3 {
-      font-family: var(--bl-font-display);
-      font-size: var(--bl-font-size-x-large);
-      font-weight: 700;
-    }
-
-    div > * + * {
-      margin-block-start: 1.5em;
-    }
-  }
-
-  #portfolio {
-    background: var(--bl-color-green-800);
-    color: var(--bl-color-text-body-inverse);
-    position: relative;
-
-    h2 {
-      text-shadow: 4px 4px 2px var(--bl-color-green-900);
-    }
-
-    ul {
-      margin-block-start: var(--bl-spacing-4x-large);
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: var(--bl-spacing-x-large);
-      padding: 0;
-      list-style: none;
-    }
-
-    img {
-      object-fit:cover;
-      width: 100%;
-      height: auto;
-      border-radius: var(--bl-border-radius-large);
-    }
-  }
-
-  #get-in-touch {
-    background: var(--bl-color-background-page-2);
-
-    form {
-      margin-inline: auto
-    }
-  }
-
-  @media (width > 600px) {
-    #portfolio ul {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: var(--bl-spacing-x-large);
-      padding: 0;
-      list-style: none;
-    }
-  }
-
-
   @media (width > 900px) {
     .page-section::before {
       clip-path: var(--bl-shape-wave-clip-high);
     }
   }
+</style>
 
-  @media (width > 1200px) {
-    #services ul {
-      --grid-max-col-count: 4;
-      --grid-min-col-size: 250px;
+<style>
+  .hero {
+    min-height: 60vh;
+    background-color: var(--bl-color-green-100);
+    background: linear-gradient(-45deg, var(--bl-color-green-100), var(--bl-color-green-300), var(--bl-color-green-500));
+	  background-size: 400% 400%;
+    padding-block-start: 200px;
+    text-align: center;
+    padding-block: 200px;
+    animation: gradient 15s ease infinite;
+
+    & > * + * {
+      justify-self: center;
+      max-width: 60ch;
+    }
+
+    .hero-cta {
+      margin-block-start: var(--bl-spacing-3x-large);
+    }
+  }
+
+  .hero-heading {
+    position: relative;
+    isolation: isolate;
+    line-height: 1.2;
+
+    span {
+      animation: randomColor 25s 3s infinite;
     }
   }
 
