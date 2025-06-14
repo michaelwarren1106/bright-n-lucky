@@ -11,9 +11,13 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+
+    <!-- SEO -->
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Everyone deserves to shine and Bright & Lucky Face Painting, serving Midlothian and the greater Richmond, VA area can help!" />
+    <link rel="canonical" href="https://brightnlucky.com" />
+
+    <title>{title}</title>
 	</head>
 	<body>
 		<Header></Header>
@@ -22,5 +26,31 @@ const { title } = Astro.props;
     </main>
 		<Footer></Footer>
 
-	</body>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "EntertainmentBusiness",
+        "name": "Bright & Lucky Face Painting",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Midlothian",
+          "addressRegion": "VA",
+          "postalCode": "23113",
+          "addressCountry": "US"
+        },
+        "priceRange": "$$",
+        "areaServed": [
+          {
+            "@type": "Place",
+            "name": "Richmond, VA"
+          },
+          {
+            "@type": "Place",
+            "name": "Midlothian, VA"
+          }
+        ],
+        "url": "https://brightnlucky.com"
+      }
+    </script>
+  </body>
 </html>
