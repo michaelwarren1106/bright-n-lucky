@@ -9,9 +9,13 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../../port
     {Object.keys(portfolioImages)
       .sort(() => Math.random() - 0.5) // sort files randomly every time
       .map(fileName => {
+        const a11yName = fileName
+          .replace('../../portfolio/', '') // remove path
+          .replace('.png', '') // remove extension
+          .replace(/-/g, ' '); // replace dashes with spaces
         return (
           <li>
-            <Image src={portfolioImages[fileName].default} alt={`Portfolio image: custom face paint design.`} loading="lazy" />
+            <Image src={portfolioImages[fileName].default} alt={`Smiling face with a custom face paint design: ${a11yName}.`} loading="lazy" />
           </li>
         );
     })}
