@@ -71,10 +71,13 @@ import Services from '../components/IndexPage/Services.astro';
     background-color: var(--bl-color-green-100);
     background: linear-gradient(-45deg, var(--bl-color-green-100), var(--bl-color-green-300), var(--bl-color-green-500));
 	  background-size: 400% 400%;
-    padding-block-start: 200px;
+    padding-block: 100px;
     text-align: center;
-    padding-block: 200px;
     animation: gradient 15s ease infinite;
+
+    @media (width > 900px) {
+      padding-block: 200px;
+    }
 
     & > * + * {
       justify-self: center;

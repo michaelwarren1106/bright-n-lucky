@@ -160,4 +160,20 @@
       margin-block-start: 20px
     }
   }
+
+  /* LISTS */
+  ul:not(.bullets) {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul.bullets {
+    margin-block-start: 0;
+    list-style: disc;
+    padding-inline-start: var(--bl-spacing-large);
+
+    & > li {
+      margin-block-start: .8em;
+    }
+  }
 }

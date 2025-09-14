@@ -64,33 +64,23 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../../port
 
       <div>
         <h3>Face painting</h3>
-        <p>$125/hr for the first hour, $50 for each additional 30 minute increment</p>
+        <p>$125 per hour ( 2 hour minimum booking)</p>
+        <p>$150 per hour ( less than 2 hours)</p>
         <h4>Minimum hours per package</h4>
         <ul>
-          <li>10 people / 1 hour</li>
           <li>20 people / 2 hours</li>
           <li>30 people / 3 hours</li>
         </ul>
+
         <h4>Large events</h4>
         <p>For events larger than 30 people, <a href="#get-in-touch">get in touch</a> and lets create a custom package!</p>
-      </div>
 
-      <div>
-        <h3>Face gems</h3>
-        <p>$2.50 per person as an addon to a face painting package</p>
-      </div>
-
-      <div>
-        <h3>Waterproof face painting</h3>
-        <p>$125/hr</p>
-        <h4>Minimum hours per package</h4>
-        <ul>
-          <li>10 people / 1 hour</li>
-          <li>20 people / 2 hours</li>
-          <li>30 people / 3 hours</li>
+        <h3>Face painting upgrades</h3>
+        <p>The services listed below can be added to a face painting package as an upgrade.</p>
+        <ul class="bullets">
+          <li>Face gems : $25 per hour additional</li>
+          <li>Waterproof face paint : $25 per hour additional</li>
         </ul>
-        <h4>Large events</h4>
-        <p>For events larger than 30 people, <a href="#get-in-touch">get in touch</a> and lets create a custom package!</p>
       </div>
 
       <div>
@@ -125,7 +115,7 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../../port
 <style>
   /* SERVICES */
   #services {
-    ul {
+    & > ul {
       --feature-gap: var(--bl-spacing-4x-large);
       --feature-max-col-count: 2;
       --feature-min-col-size: 350px;
@@ -188,6 +178,12 @@ const portfolioImages = import.meta.glob<{ default: ImageMetadata }>('../../port
     & h3 {
       font-family: var(--bl-font-display);
       font-size: var(--bl-font-size-x-large);
+      font-weight: 700;
+    }
+
+    & h4 {
+      font-family: var(--bl-font-display);
+      font-size: var(--bl-font-size-large);
       font-weight: 700;
     }
 
